@@ -43,13 +43,13 @@ export default function Navbar({ title = 'Default Title',homeText = 'Home' }) {
   );
 }
 
-// Navbar.propTypes = {
-//   title: PropTypes.string,
-//   homeText: PropTypes.string,
-// };
-
-
-Navbar.defaultProps = {
-  title: 'Default Title',
-  homeText: 'Home',
+Navbar.propTypes = {
+  title: PropTypes.string,
+  homeText: PropTypes.string,
 };
+
+
+// Navbar.defaultProps = {
+//   title: 'Default Title',
+//   homeText: 'Home',
+// };
