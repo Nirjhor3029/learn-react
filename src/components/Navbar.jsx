@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ title = 'Default Title',homeText = 'Home' }) {
   return (
@@ -14,14 +15,14 @@ export default function Navbar({ title = 'Default Title',homeText = 'Home' }) {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="/">
+            <Link className="nav-link" to="/">
               {homeText} <span className="sr-only">(current)</span>
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/">
+            <Link className="nav-link" to="/about">
               About
-            </a>
+            </Link>
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">

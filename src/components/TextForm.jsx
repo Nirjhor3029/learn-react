@@ -29,6 +29,19 @@ export default function TextForm({ heading = "Text Analyzer" }) {
         setText("");
     };
 
+    const handleSentenceClick = () => {
+        const sentences = text.split("…").map((sentence) => sentence.trim());
+        const capitalizedSentences = sentences.map((sentence) => {
+            if (sentence.length > 0) {
+                return sentence.charAt(0).toUpperCase() + sentence.slice(1);
+            }
+            return sentence;
+        });
+        const newText = capitalizedSentences.join("… ");
+        setText(newText);
+    }
+    
+
     return (
         <div>
             <div className="container">
@@ -39,19 +52,27 @@ export default function TextForm({ heading = "Text Analyzer" }) {
                     <h2>{heading}</h2>
                     <textarea
                         className="form-control"
-                        id="exampleFormControlTextarea1"
+                        id="txt"
                         rows="8"
                         value={text}
                         onChange={(e) => setText(e.target.value)}
                     ></textarea>
 
                     <div className="text_counter_container">
-                        <div>Word Count: {text.split(" ").length - 1}</div>
+                        <div>Word Count: {text.split(" ").filter((element) => {
+                            // console.log(`element: ${element}`);
+                            // console.log(`element-length: ${element.length}`);
+                            return  element.length !== 0;
+                            
+                        }).length}</div>
                         <div>Charecter Count: {text.length}</div>
                     </div>
                 </div>
 
                 <div className=" action_btn_container">
+                    <button className="btn btn-primary action_btn" onClick={handleSentenceClick}>
+                        Sentence case
+                    </button>
                     <button
                         className="btn btn-primary action_btn"
                         onClick={handleUpClick}
